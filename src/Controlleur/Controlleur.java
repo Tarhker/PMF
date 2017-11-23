@@ -11,20 +11,38 @@ public class Controlleur implements IObserver{
 	public Controlleur(Modele modele) {
 		monModele = modele;
 		maVue = new Vue(this);
-		maVue.frame.setVisible(true);
+		maVue.setVisible(true);
 		
 	}
 
 	@Override
 	public void notifyTempChanged(double temp) {
-		maVue.changeTemp(temp);
+		maVue.setTempValue(temp);
 		
 	}
 
 	@Override
 	public void notifyHumidityChanged(double humidity) {
-		maVue.changeHumidity(humidity);
+		maVue.setHumidityValue(humidity);
 		
 	}
+
+	@Override
+	public void notifyConsigneChanged(double consigne) {
+		maVue.setConsigne(consigne);
+		
+	}
+	
+	public void plusConsigne(String oldConsigne) {
+        String[] oldTemp = oldConsigne.split(" ");
+        double newTemp = Double.parseDouble(oldTemp[0]) + 0.5;
+        monModele.setConsigne(newTemp);
+    }
+
+    public void moinsConsigne(String oldConsigne) {
+        String[] oldTemp = oldConsigne.split(" ");
+        double newTemp = Double.parseDouble(oldTemp[0]) - 0.5;
+        monModele.setConsigne(newTemp);
+}
 
 }
