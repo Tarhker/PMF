@@ -1,14 +1,30 @@
 package Controlleur;
 
 import Modele.Modele;
+import Vue.Vue;
 
-public class Controlleur {
+public class Controlleur implements IObserver{
 	
-	Modele mod;
+	Vue maVue;
+	Modele monModele;
+	
+	public Controlleur(Modele modele) {
+		monModele = modele;
+		maVue = new Vue(this);
+		maVue.frame.setVisible(true);
+		
+	}
 
-	public Controlleur(Modele mod) {
-		// TODO Auto-generated constructor stub
-		mod = Modele;
+	@Override
+	public void notifyTempChanged(double temp) {
+		maVue.changeTemp(temp);
+		
+	}
+
+	@Override
+	public void notifyHumidityChanged(double humidity) {
+		maVue.changeHumidity(humidity);
+		
 	}
 
 }
