@@ -35,13 +35,13 @@ public class Controlleur implements IObserver{
 	
 	public void plusConsigne(String oldConsigne) {
         String[] oldTemp = oldConsigne.split(" ");
-        double newTemp = Double.parseDouble(oldTemp[0]) + 0.5;
+        double newTemp = Double.parseDouble(oldTemp[0]) + 1;
         monModele.setConsigne(newTemp);
     }
 
     public void moinsConsigne(String oldConsigne) {
         String[] oldTemp = oldConsigne.split(" ");
-        double newTemp = Double.parseDouble(oldTemp[0]) - 0.5;
+        double newTemp = Double.parseDouble(oldTemp[0]) - 1;
         monModele.setConsigne(newTemp);
 }
 
