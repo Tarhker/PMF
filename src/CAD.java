@@ -77,7 +77,8 @@ public class CAD
                     for(int i = 0; i<tokens.length;i++)
                     {
                         switch(i){
-                            case 0: break;
+                            case 0: 
+                            	break;
                             case 1: 
                                 double humidite = Double.parseDouble(tokens[i]);
                                 monModele.setHumidite(humidite);
