@@ -7,9 +7,9 @@ DHT dht(DHTPIN, DHTTYPE);
 //Variables
 double hum;  
 double temp; 
-int digtalPin = 9;
+int tempPin = A0;
 int value_received;
-int analogPin = 13;
+int humidityPin = 2;
 
 void setup(){
     Serial.begin(9600);
@@ -33,8 +33,8 @@ void loop(){
       
       value_received = Serial.read();
       
-        digitalWrite(digtalPin, value_received);
-        digitalWrite(analogPin, value_received);
+        digitalWrite(tempPin, value_received);
+        digitalWrite(humidityPin, value_received);
     }
     
     delay(1000); //1 sec
